@@ -26,7 +26,7 @@ Template for printing hold request slips. Fields include:
 <p style="padding-top:30px">
 <b>
 <font size="5">
-<dv>{{hold.shelf_expire_time | date:'M/d'}} </div>
+<div>{{hold.shelf_expire_time | date:'M/d'}} </div>
    <div ng-if="hold.phone_notify">Notify by P: {{hold.phone_notify}}</div>
    <div ng-if="patron.day_phone"> Notify by DP: {{patron.day_phone}},</div>
     <div ng-if="hold.sms_notify">Notify by T: {{hold.sms_notify}}</div>
@@ -79,10 +79,11 @@ Hold Shelf Expire Date: {{hold.shelf_expire_time | date:'M/d/yyyy'}}<div>
 		<span ng-if="!patron.pref_second_given_name">{{patron.second_given_name}}</span>
 </span>
 </div>
-  <div ng-if="hold.phone_notify">Notify by P: {{hold.phone_notify}}</div>
-   <div ng-if="patron.day_phone"> Notify by DP: {{patron.day_phone}},</div>
-    <div ng-if="hold.sms_notify">Notify by T: {{hold.sms_notify}}</div>
-    <div ng-if="hold.email_notify == 't'">Notify by Email: {{patron.email}}</div>
+  <div> Notify by : </div>
+  <div ng-if="hold.phone_notify"> Phone: {{hold.phone_notify}}</div>
+   <div ng-if="patron.day_phone"> Daytime Phone: {{patron.day_phone}},</div>
+    <div ng-if="hold.sms_notify"> Text: {{hold.sms_notify}}</div>
+    <div ng-if="hold.email_notify == 't'"> Email: {{patron.email}}</div>
   <div ng-if="hold_notes">
       <ul>Notes:
         <li ng-repeat="note in hold_notes | filter: {slip : 't'}"><strong>{{note.title}}</strong> - {{note.body}}</li>
