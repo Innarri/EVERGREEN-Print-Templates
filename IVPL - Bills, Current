@@ -15,44 +15,48 @@ to this template includes:
 {{patron.card.barcode}}<br><br>
 
 At {{current_location.name}}<br/>you have the following bills:
-<hr/>
-<dl>
-  <div ng-repeat="xact in transactions">
-    <dt><b>Bill #{{xact.id}}</b></dt>
-    <dd>
-    <table> 
-      <tr valign="top">
-        <td>Date:</td>
-        <td>{{xact.xact_start | date:$root.egDateAndTimeFormat}}</td>
-      </tr> 
+<div ng-init="transactions.subtotal = 0">
+<div ng-repeat="xact in transactions">
+ <br/>
+ <table ng-init="transactions.subtotal = transactions.subtotal -- xact.summary.balance_owed">
  <tr valign="top">
-        <td>Title:</td>
-        <td>{{xact.title}}</td>
-      </tr> 
-      <tr valign="top">
-        <td>Barcode:</td>
-        <td>{{xact.copy_barcode}}
-        </td>
-      </tr> 
-      <tr valign="top">
-        <td>Type:</td>
-        <td>{{xact.summary.xact_type}}</td>
-      </tr> 
-      <tr valign="top">
-        <td>Last Billing:</td>
-        <td>{{xact.summary.last_billing_type}}<br/>
-            {{xact.summary.last_billing_note}}
-        </td>
-      </tr> 
-      <tr valign="top">
-        <td><b>Balance:</b></td>
-        <td><b>{{xact.summary.balance_owed | currency}}</b></td>
-      </tr> 
-    </table>
-    </dd>
-    <br/>
-  </div><!-- ng-repeat -->
-</dl>
+ <td><b>Bill ID:</b></td>
+ <td><b>{{xact.id}}</b></td>
+ </tr>
+ <tr valign="top">
+ <td>Bill Start Date: &nbsp; </td>
+ <td>{{xact.xact_start | date:'M/d/yyyy'}}</td>
+ </tr>
+ <tr>
+ <td valign="top">Last Billing Type: &nbsp; </td>
+ <td valign="top">{{xact.summary.last_billing_type}}</td>
+ </tr>
+ <tr ng-if="xact.title">
+ <td valign="top">Title:</td>
+ <td valign="top">{{xact.title}}</td>
+ </tr>
+ <tr ng-if="xact.copy_barcode">
+ <td valign="top">Barcode:</td>
+ <td valign="top">{{xact.copy_barcode}}</td>
+ </tr>
+ <tr valign="top">
+ <td>Total Billed:</td>
+ <td>{{xact.summary.total_owed | currency}}</td>
+ </tr>
+ <tr valign="top">
+ <td>Total Paid:</td>
+ <td>{{xact.summary.total_paid | currency}}</td>
+ </tr>
+ <tr valign="top">
+ <td><b>Balance:</b></td>
+ <td><b>{{xact.summary.balance_owed | currency}}</b></td>
+ </tr>
+ </table>
+ </div><!-- ng-repeat -->
+<br/>
+<b>Total Balance Owed: {{transactions.subtotal | currency}}</b>
 <hr/>
+<br/>
 {{current_location.shortname}} {{today | date:$root.egDateAndTimeFormat}}
+<div> PT 2020.10.01</div>
 <br/><br/>
