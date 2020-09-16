@@ -1,0 +1,38 @@
+<!--
+Template for printing a list of items that a patron has checked out.
+Fields include:
+
+* circulations - list of current loans, including
+
+  * copy.barcode
+  * circ.due_date
+  * title
+
+-->
+<div>
+  <div>Welcome to {{current_location.name}}</div> <br>
+  <div><b>
+<span ng-if="patron.alias">{{patron.alias}}</span>
+<span ng-if="!patron.alias">
+	<span ng-if="patron.pref_family_name">{{patron.pref_family_name}},</span>
+		<span ng-if="!patron.pref_family_name">{{patron.family_name}},</span>
+	<span ng-if="patron.pref_first_given_name">{{patron.pref_first_given_name}}</span>
+		<span ng-if="!patron.pref_first_given_name">{{patron.first_given_name}}</span>
+	<span ng-if="patron.pref_second_given_name">{{patron.pref_second_given_name}}</span>
+		<span ng-if="!patron.pref_second_given_name">{{patron.second_given_name}}</span> </b>
+</div>
+<div> {{database.id}}</div>
+<div> {{patron.day_phone}} </div> <br>
+  <div>You have the following items:</div>
+  <hr/>
+  <ol>
+    <li ng-repeat="checkout in circulations">
+      <div><b>{{checkout.title}}</b></div>
+      <div>Author: <b>{{checkout.author}}</b></div>
+      <div>Barcode: <b>{{checkout.copy.barcode}} </b><br> Call #: <b>{{checkout.call_number.label}} </b><br> Due: {{checkout.circ.due_date | egDueDate:$root.egDateAndTimeFormat:checkout.circ.circ_lib:checkout.circ.duration}}</div>
+    </li>
+  </ol>
+  <hr/>
+  <div>{{current_location.shortname}} {{today | date:$root.egDateAndTimeFormat}}</div>
+  <div> PT 2020.10.01</div>
+<br/>
