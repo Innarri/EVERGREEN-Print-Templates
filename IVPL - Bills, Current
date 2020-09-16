@@ -9,10 +9,18 @@ to this template includes:
   xact.title - Copy title
   xact.copy_barcode - Copy barcode
 -->
-
-
-<b>{{patron.first_given_name}} {{patron.family_name}}</b><br>
-{{patron.card.barcode}}<br><br>
+<br>
+<div><b>
+<span ng-if="patron.alias">{{patron.alias}}</span>
+<span ng-if="!patron.alias">
+	<span ng-if="patron.pref_family_name">{{patron.pref_family_name}},</span>
+		<span ng-if="!patron.pref_family_name">{{patron.family_name}},</span>
+	<span ng-if="patron.pref_first_given_name">{{patron.pref_first_given_name}}</span>
+		<span ng-if="!patron.pref_first_given_name">{{patron.first_given_name}}</span>
+	<span ng-if="patron.pref_second_given_name">{{patron.pref_second_given_name}}</span>
+		<span ng-if="!patron.pref_second_given_name">{{patron.second_given_name}}</span> </b>
+</div>
+<br>
 
 At {{current_location.name}}<br/>you have the following bills:
 <div ng-init="transactions.subtotal = 0">
