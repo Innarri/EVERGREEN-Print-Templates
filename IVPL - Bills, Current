@@ -62,7 +62,7 @@ At {{current_location.name}}<br/>you have the following bills:
  </table>
  </div><!-- ng-repeat -->
 <br/>
-<b>Total Balance Owed: {{transactions.subtotal | currency}}</b>
+<b>Current Balance: {{transactions.subtotal | currency}}</b>
 <hr/>
 <br/>
 {{current_location.shortname}} {{today | date:$root.egDateAndTimeFormat}}
