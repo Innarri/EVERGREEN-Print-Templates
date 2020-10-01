@@ -48,14 +48,6 @@ At {{current_location.name}}<br/>you have the following bills:
  <td valign="top">{{xact.copy_barcode}}</td>
  </tr>
  <tr valign="top">
- <td>Total Billed:</td>
- <td>{{xact.summary.total_owed | currency}}</td>
- </tr>
- <tr valign="top">
- <td>Total Paid:</td>
- <td>{{xact.summary.total_paid | currency}}</td>
- </tr>
- <tr valign="top">
  <td><b>Balance:</b></td>
  <td><b>{{xact.summary.balance_owed | currency}}</b></td>
  </tr>
