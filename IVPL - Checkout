@@ -22,8 +22,8 @@ Template for printing checkout receipts; fields available include:
 -->
 <div>
   <div> 
- <b>{{current_location.name}}</b></div>{{current_location.phone}}<div>www.ivpl.org</div>
-  
+ <b>{{current_location.name}}</b><div>100 E Church Ave</div><div>Telford, PA 18969</div>{{current_location.phone}}<div>www.ivpl.org</div><div> refdesk@ivpl.org
+  <br><br>
 <div>You borrowed the following items:</div>
   <hr/>
   <ol><div ng-init="transactions.subtotal=0">
@@ -35,10 +35,15 @@ Template for printing checkout receipts; fields available include:
     </li>
   </ol>
   <hr/><div>Estimated cost of these items: {{transactions.subtotal | currency}}</span><br/> Value of your public library -- Priceless! <BR> 
-
-Summer Learning @ IVPL
+</br>
+<b>New Hours Beginning Nov 7</b>
+</br>
+Mon/Wed/Fri : 10 am - 6 pm </br>
+Tue/Thurs : 12 pm - 8 pm </br>
+Sat : 10 am - 5 pm<b>*</b></br>
+Sun : Closed </br></br>
  
   <div>Printed at: {{current_location.shortname}} {{today | date:$root.egDateAndTimeFormat}}</div>
+<div> PT 2020.11.01</div>
 
-
-<br/>
+</br>
