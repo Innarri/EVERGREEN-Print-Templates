@@ -34,7 +34,7 @@ Template for printing checkout receipts; fields available include:
       <div>Barcode: {{checkout.copy.barcode}} <div><b>Due: {{checkout.circ.due_date | egDueDate:$root.egDateAndTimeFormat:checkout.circ.circ_lib:checkout.circ.duration}}</b></div>
     </li>
   </ol>
-  <hr/><div>Estimated cost of these items: {{transactions.subtotal | currency}}</span><br/> Value of your public library -- Priceless! <BR> 
+  <hr/>Please do not disinfect the books,</br>they have been quarantined </br>for your convenience. Thank You </br> </br><div>Estimated cost of these items: {{transactions.subtotal | currency}}</span><br/> Value of your public library -- Priceless! <BR> 
 </br>
 <b>New Hours Beginning Nov 7</b>
 </br>
