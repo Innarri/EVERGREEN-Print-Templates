@@ -1,0 +1,44 @@
+<!--
+Template for printing checkout receipts; fields available include:
+
+
+* patron_money - summary of the patron's current financial obligations:
+
+
+  * patron_money.balance_owed - current balance
+  * patron_money.total_paid - payments made on outstanding fines/fees
+  * patron_money.total_owed - total of outstanding fines/fees
+
+
+* circulations - list of loans made during this session. Each
+  includes:
+
+
+  * title
+  * copy_barcode
+  * due_date
+
+
+-->
+<div>
+  <div> 
+ <b>{{current_location.name}}</b></div>{{current_location.phone}}<div>www.ivpl.org</div>
+  
+<div>You borrowed the following items:</div>
+  <hr/>
+  <ol><div ng-init="transactions.subtotal=0">
+    <li ng-repeat="checkout in circulations" | ng-init="transactions.subtotal=transactions.subtotal -- checkout.copy.price" >
+      <div>{{checkout.title}}</div> {{checkout.author}} <div>Call Number: {{checkout.call_number.label}}
+
+
+      <div>Barcode: {{checkout.copy.barcode}} <div><b>Due: {{checkout.circ.due_date | egDueDate:$root.egDateAndTimeFormat:checkout.circ.circ_lib:checkout.circ.duration}}</b></div>
+    </li>
+  </ol>
+  <hr/><div>Estimated cost of these items: {{transactions.subtotal | currency}}</span><br/> Value of your public library -- Priceless! <BR> 
+
+Summer Learning @ IVPL
+ 
+  <div>Printed at: {{current_location.shortname}} {{today | date:$root.egDateAndTimeFormat}}</div>
+
+
+<br/>
