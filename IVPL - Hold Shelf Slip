@@ -66,6 +66,7 @@ Notify :
     <span ng-if="hold.sms_notify"> T, </span>
     <span ng-if="hold.email_notify == 't'"> E, </span>
 </div>
+<ol><li ng-repeat="note in hold_notes|filter: {slip : 't'}"><strong>{{note.title}}</strong><br/>{{note.body}}</li></ol>
 </b>
  <font size="3">
 <div>
@@ -124,7 +125,7 @@ Hold Shelf Expire Date: {{hold.shelf_expire_time | date:'M/d/yyyy'}}<div>
 
   <div>Request Date: {{hold.request_time | date:$root.egDateAndTimeFormat}}</div>
   <div>Printed: {{today | date:$root.egDateAndTimeFormat}} @ {{current_location.shortname}}</div>
-  <div> PT 2020.10.01</div>
+  <div> PT 2020.12.01</div>
 <p style="padding-bottom:160px">
 </p>
 </div>
