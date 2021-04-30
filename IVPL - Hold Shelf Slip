@@ -125,7 +125,7 @@ Hold Shelf Expire Date: {{hold.shelf_expire_time | date:'M/d/yyyy'}}<div>
 
   <div>Request Date: {{hold.request_time | date:$root.egDateAndTimeFormat}}</div>
   <div>Printed: {{today | date:$root.egDateAndTimeFormat}} @ {{current_location.shortname}}</div>
-  <div> PT 2020.12.01</div>
+  <div> PT 2021.03.01</div>
 <p style="padding-bottom:160px">
 </p>
 </div>
