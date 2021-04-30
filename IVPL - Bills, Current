@@ -1,7 +1,5 @@
 <!--
 Template for printing a list of current bills. Data specific
-<!--
-Template for printing a list of current bills. Data specific
 to this template includes:
 
 * transactions - a list of transactions, each of which
@@ -56,5 +54,5 @@ At {{current_location.name}}<br/>you have the following bills:
 <hr/>
 <br/>
 {{current_location.shortname}} {{today | date:$root.egDateAndTimeFormat}}
-<div> PT 2020.12.01</div>
+<div> PT 2020.05.01</div>
 <br/><br/>
