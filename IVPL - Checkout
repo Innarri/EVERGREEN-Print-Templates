@@ -23,7 +23,7 @@ Template for printing checkout receipts; fields available include:
 <div>
   <div> 
  <b>{{current_location.name}}</b><div>100 E Church Ave</div><div>Telford, PA 18969</div>{{current_location.phone}}<div>www.ivpl.org</div><div> refdesk@ivpl.org
-  <br><br>
+  <br><br>Thank you for visiting us. <br><br>
 <div>You borrowed the following items:</div>
   <hr/>
   <ol><div ng-init="transactions.subtotal=0">
@@ -41,10 +41,10 @@ Template for printing checkout receipts; fields available include:
 Mon/Wed/Fri : 10 am - 6 pm </br>
 Tue/Thurs : 12 pm - 8 pm </br>
 Sat : 10 am - 5 pm</br>
-Sun : Closed</div>  </br><div style="border:2px dashed #000;text-align:center;"><b>You Saved: </b>{{transactions.subtotal | currency}}</span><br/> Value of your public library -- Priceless! </div><BR> 
+Sun : 1 pm - 5 pm</div>  </br><div style="border:2px dashed #000;text-align:center;"><b>You Saved: </b>{{transactions.subtotal | currency}}</span><br/> Value of your public library -- Priceless! </div><BR> 
 
  
   <div>Printed at: {{current_location.shortname}} {{today | date:$root.egDateAndTimeFormat}}</div>
-<div> PT 2020.12.01</div>
+<div> PT 2021.03.01</div>
 
 </br>
