@@ -1,16 +1,6 @@
-<!--
-Template for printing a list of items that a patron has checked out.
-Fields include:
-
-* circulations - list of current loans, including
-
-  * copy.barcode
-  * circ.due_date
-  * title
-
 -->
 <div>
-  <div>Welcome to {{current_location.name}}</div> <br>
+  <div>Welcome to {{current_location.name}}</b><br><br>
   <div><b>
 <span ng-if="patron.alias">{{patron.alias}}</span>
 <span ng-if="!patron.alias">
@@ -22,8 +12,9 @@ Fields include:
 		<span ng-if="!patron.pref_second_given_name">{{patron.second_given_name}}</span> </b>
 </div>
 <div> {{database.id}}</div>
-<div> {{patron.day_phone}} </div> <br>
-  <div>You have the following items:</div>
+<div> {{patron.day_phone}} </div>
+<br>Thank you for visiting us. <br><br>
+  <div>You have the following items checked out:</div>
   <hr/>
   <ol>
     <li ng-repeat="checkout in circulations">
@@ -34,5 +25,5 @@ Fields include:
   </ol>
   <hr/>
   <div>{{current_location.shortname}} {{today | date:$root.egDateAndTimeFormat}}</div>
-  <div> PT 2020.10.01</div>
+  <div> PT 2021.05.01</div>
 <br/>
